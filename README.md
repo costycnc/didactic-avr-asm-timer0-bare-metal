@@ -1,14 +1,4 @@
 
-## 🔧 Didactic-avr-asm-timer0-bare-metal
-
-Write `OUT 0x25, 0b00000101` and the ATmega328P's Timer0 starts counting. Period.
-
-No includes. No cryptic acronyms. No magic. Just a physical address and a number.
-
-This repository is for those who want to see the naked silicon. No abstraction layers. No clothes.
-
----
-
 ## 📘 Datasheet
 
 <a href="https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf">ATmega328P Datasheet</a>
@@ -19,7 +9,6 @@ This repository is for those who want to see the naked silicon. No abstraction l
 
 ### Page 279
 To start Timer0, you need to change the last 3 bits of register `0x25` (these bits are called CS00, CS01, and CS02).  
-Set them to any value **greater than 0**.
 
 <img width="787" height="23" alt="image" src="https://github.com/user-attachments/assets/238fbb6d-9afa-4d23-9949-b6f5097a1970" />
 
@@ -27,7 +16,7 @@ Set them to any value **greater than 0**.
 
 ### Page 87 — Table of values for Timer0 prescaler
 
-<img width="858" height="322" alt="image" src="https://github.com/user-attachments/assets/5e95a0a1-5261-407a-9e14-c5bc13889b3a" />
+<img width="697" height="87" alt="image" src="https://github.com/user-attachments/assets/d2f77968-f7d3-4c7b-a604-37330ca8bba8" />
 
 ---
 
