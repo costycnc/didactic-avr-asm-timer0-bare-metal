@@ -21,24 +21,6 @@ To start Timer0, you need to change the last 3 bits of register `0x25` (these bi
 <img width="490" height="30" alt="image" src="https://github.com/user-attachments/assets/7e28198b-b259-4f1f-821b-23a50f07122a" />
 
 
----
-
-## ⚙️ Example: Setting the value `0b00000101`
-
-We want:
-- `CS00 = 1`
-- `CS01 = 0`
-- `CS02 = 1`
-
-That gives us the binary number: `0b00000101`
-
-### But you cannot write this value directly to the register.
-You must use a **temporary register**.
-
-We will use `R16` as temporary storage.
-
----
-
 ## 📝 Assembly Code
 
 ```assembly
