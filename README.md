@@ -46,49 +46,15 @@ At that exact moment, **bit 0** of register `0x15` (also called `TOV0` — Timer
 <img width="782" height="27" alt="image" src="https://github.com/user-attachments/assets/5731d5ca-dfbd-4e99-86d1-b3cf513aaf7d" />
 
 ### The problem:
-
+So if use event TOV0 will have a tick any 16000000/1024/256 sec so every ~16 milliseconds (about 60 times per second).
 The LED blinks **very quickly** — too fast for your eyes to see!  
-It toggles every ~16 milliseconds (about 60 times per second).
-
-### How to make it blink slower:
-
-Below, I'll show you how to add a **counter** to create a longer delay.  
-By counting multiple overflows before toggling the LED, you can make it blink once per second, twice per second, or any speed you want.
-
-
 
 ## 🔁 Using TOV0 to and r17 to create a longer delay
 
-If you keep checking bit 0 of register `0x15`, you will know when it becomes `1`.  
-That means Timer0 has reached 255 and restarted.
+Every time Timer0 overflows (every ~16 ms), the code checks and counts.  
+After 32 overflows, the LED toggles (turns on or off).  
 
-After `TOV0` becomes `1`, you must set it back to `0` manually to detect the next overflow.
-
----
-
-## 🧮 Calculation (for 16 MHz clock)
-
-With prescaler value `0b00000101` (which means divide by 1024):
-
-```
-16,000,000 Hz / 1024 = 15,625 Hz
-15,625 Hz / 256 = 61.035 Hz
-```
-
-So you get a tick every:
-
-```
-1 / 61.035 ≈ 0.01638 seconds ≈ 16.38 milliseconds
-```
-
-## 🧠 Why this matters
-
-You are controlling the hardware directly.  
-No libraries. No hidden code. Just you and the silicon.
-
-This is how microcontrollers work at the lowest level.
-
-
+## 🧠 Final code
 
                     .org 0
                     rjmp start
