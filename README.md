@@ -69,6 +69,8 @@ Every time it reaches 255, it resets back to 0.
 
 At that exact moment, **bit 0** of register `0x15` (also called `TOV0` — Timer Overflow Flag 0) becomes `1`.
 
+<img width="782" height="27" alt="image" src="https://github.com/user-attachments/assets/5731d5ca-dfbd-4e99-86d1-b3cf513aaf7d" />
+
 ### The problem:
 
 The LED blinks **very quickly** — too fast for your eyes to see!  
@@ -79,24 +81,8 @@ It toggles every ~16 milliseconds (about 60 times per second).
 Below, I'll show you how to add a **counter** to create a longer delay.  
 By counting multiple overflows before toggling the LED, you can make it blink once per second, twice per second, or any speed you want.
 
-## ⏱️ What happens when you upload this code to Arduino?
 
-- Register `0x26` (called `TCNT0`) starts counting: 0 → 1 → 2 → ... → 255 → 0 → 1...
-- Every time it reaches 255 and resets to 0, **bit 0** of register `0x15` (called `TOV0`) becomes `1`
 
-### ⚡ But the LED blinks very fast! (too fast to see clearly)
-
-Don't worry — below I'll show you how to add a counter and make the LED blink slower, with a delay you can control.
-
--------------------------------------------------------------------
-
-## ⏱️ What happens after uploading to Arduino?
-
-- Register `0x26` (also called `TCNT0`) starts counting from 0 up to 255.
-- Every time it reaches 255, it resets to 0.
-- At that moment, bit 0 of register `0x15` (also called `TOV0`) becomes `1`.
-
-<img width="782" height="27" alt="image" src="https://github.com/user-attachments/assets/5731d5ca-dfbd-4e99-86d1-b3cf513aaf7d" />
 
 
 ---
