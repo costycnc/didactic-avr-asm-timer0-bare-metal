@@ -49,12 +49,7 @@ At that exact moment, **bit 0** of register `0x15` (also called `TOV0` — Timer
 So if use event TOV0 will have a tick any 16000000/1024/256 sec so every ~16 milliseconds (about 60 times per second).
 The LED blinks **very quickly** — too fast for your eyes to see!  
 
-## 🔁 Using TOV0 to and r17 to create a longer delay
-
-Every time Timer0 overflows (every ~16 ms), the code checks and counts.  
-After 32 overflows, the LED toggles (turns on or off).  
-
-## 🧠 Final code
+## 🧠 Final code - use r17 to create a longer delay
 
                     .org 0
                     rjmp start
