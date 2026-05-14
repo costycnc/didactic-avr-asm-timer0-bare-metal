@@ -106,33 +106,32 @@ For example: toggle an LED → blink without delays!
 
 ## 📁 Example file: `timer0_blink.asm`
 
-```assembly
-; timer0_blink.asm
-; Blink an LED using Timer0 overflow
-
-start:
-  ; Set up Timer0 with prescaler 1024
-  ldi r16, 0b00000101
-  out 0x25, r16
-
-  ; Clear TOV0 flag (bit 0 of register 0x15)
-  ldi r16, 0x00
-  out 0x15, r16
-
-main_loop:
-  ; Check if TOV0 flag is set
-  in r16, 0x15
-  sbrs r16, 0        ; Skip next instruction if bit 0 = 1
-  rjmp main_loop     ; If not set, keep checking
-  ; Clear TOV0 flag by writing 1 to bit 0
-  ldi r16, 0b00000001
-  out 0x15, r16
-  dec r17
-  brne main_loop
-  ; TOV0 is set → toggle LED on PB5 (Arduino pin 13)
-  sbi 0x03, 5        ;  bit 5 of PORTB (LED onboard)
-  rjmp main_loop
-```
+          .org 0
+          rjmp start
+          .org 0x60
+          
+          start:
+            ;Set PIN D13 (Led onboard) as out pin
+            sbi 4,5
+            ; Set up Timer0 with prescaler 1024
+            ldi r16, 0b00000101
+            out 0x25, r16
+          
+          main_loop1:
+          ldi r17,32 ; velocity of blink  16000000/1024*256*32
+          main_loop:
+            ; Check if TOV0 flag is set
+            in r16, 0x15
+            sbrs r16, 0        ; Skip next instruction if bit 0 = 1
+            rjmp main_loop     ; If not set, keep checking
+            ; Clear TOV0 flag by writing 1 to bit 0
+            ldi r16, 0b00000001
+            out 0x15, r16
+            dec r17
+            brne main_loop
+            ; TOV0 is set → toggle LED on PB5 (Arduino pin 13)
+            sbi 0x03, 5        ;  bit 5 of PORTB (LED onboard)
+            rjmp main_loop1
 
 ---
 
