@@ -60,9 +60,7 @@ out 0x25, r16
 <img width="887" height="28" alt="image" src="https://github.com/user-attachments/assets/dc84e6fe-6058-40f5-9839-5e814754501f" />
 
 ------------------------------------------------------------------
-Ecco il testo corretto e migliorato:
 
-```markdown
 ## ⏱️ What happens when you upload this code to Arduino?
 
 Register `0x26` (also called `TCNT0` — Timer/Counter0) starts counting from 0 up to 255.
@@ -80,11 +78,7 @@ It toggles every ~16 milliseconds (about 60 times per second).
 
 Below, I'll show you how to add a **counter** to create a longer delay.  
 By counting multiple overflows before toggling the LED, you can make it blink once per second, twice per second, or any speed you want.
-```
 
-Oppure, se preferisci una versione più compatta:
-
-```markdown
 ## ⏱️ What happens when you upload this code to Arduino?
 
 - Register `0x26` (called `TCNT0`) starts counting: 0 → 1 → 2 → ... → 255 → 0 → 1...
@@ -93,13 +87,7 @@ Oppure, se preferisci una versione più compatta:
 ### ⚡ But the LED blinks very fast! (too fast to see clearly)
 
 Don't worry — below I'll show you how to add a counter and make the LED blink slower, with a delay you can control.
-```
 
-Ho corretto:
-- "if uploading code now" → "when you upload this code"
-- "led blink" → "the LED blinks"
-- Aggiunto il contesto sul perché è veloce
-- Anticipato la soluzione (il contatore) che mostrerai dopo
 -------------------------------------------------------------------
 
 ## ⏱️ What happens after uploading to Arduino?
