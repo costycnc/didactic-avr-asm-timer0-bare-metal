@@ -83,11 +83,7 @@ By counting multiple overflows before toggling the LED, you can make it blink on
 
 
 
-
-
----
-
-## 🔁 Using this to measure time
+## 🔁 Using TOV0 to and r17 to create a longer delay
 
 If you keep checking bit 0 of register `0x15`, you will know when it becomes `1`.  
 That means Timer0 has reached 255 and restarted.
