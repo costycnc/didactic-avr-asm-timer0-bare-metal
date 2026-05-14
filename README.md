@@ -15,6 +15,8 @@ To start Timer0, you need to change the last 3 bits of register `0x25` (these bi
 ---
 
 ### Page 87 — Table of values for Timer0 prescaler
+<img width="823" height="77" alt="image" src="https://github.com/user-attachments/assets/4f42061e-5653-46a3-ba2b-c5e069aa39b7" />
+
 
 <img width="490" height="30" alt="image" src="https://github.com/user-attachments/assets/7e28198b-b259-4f1f-821b-23a50f07122a" />
 
