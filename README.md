@@ -39,9 +39,7 @@ Write OUT 0x25, 0b00000101 and the ATmega328P's Timer1 starts counting. Period. 
 
 
 
-Here's the corrected and improved version for your GitHub README, formatted as requested:
 
-```markdown
 # didactic-avr-asm-timer0-bare-metal
 
 Write `OUT 0x25, 0b00000101` and the ATmega328P's Timer0 starts counting. Period.
@@ -187,15 +185,6 @@ You are controlling the hardware directly.
 No libraries. No hidden code. Just you and the silicon.
 
 This is how microcontrollers work at the lowest level.
-```
-
-This version:
-- Corrects the grammar and typos
-- Uses beginner-friendly English
-- Keeps your original structure and images
-- Adds clear explanations
-- Includes a complete working example
-- Is ready to save as `README.md`
            
 
             
