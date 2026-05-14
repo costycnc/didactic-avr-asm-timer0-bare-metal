@@ -35,7 +35,7 @@ out 0x25, r16
 
 ------------------------------------------------------------------
 
-## ⏱️ What happens when you upload this code to Arduino?
+## ⏱️ What happens now in Arduino?
 
 Register `0x26` (also called `TCNT0` — Timer/Counter0) starts counting from 0 up to 255.
 
