@@ -190,7 +190,7 @@ You can **assemble and upload this exact code from your browser**:
 5. Connect your Arduino UNO (or Nano) via USB
 6. Click the **"Upload"** button (it uses Web Serial API)
 7. Select the correct COM port / USB port
-8. Watch the LED on pin 13 (PB5) turn on **immediately**
+8. Watch the LED on pin 13 (PB5) blink **immediately**
 
 No IDE configuration.  
 No board selection.  
