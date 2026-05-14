@@ -68,7 +68,8 @@ out 0x25, r16
 - Every time it reaches 255, it resets to 0.
 - At that moment, bit 0 of register `0x15` (also called `TOV0`) becomes `1`.
 
-<img width="882" height="90" alt="image" src="https://github.com/user-attachments/assets/396bda6e-64c1-4cad-bbaf-6a36e32b4eb2" />
+<img width="782" height="27" alt="image" src="https://github.com/user-attachments/assets/5731d5ca-dfbd-4e99-86d1-b3cf513aaf7d" />
+
 
 ---
 
