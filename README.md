@@ -173,7 +173,44 @@ After 32 overflows, the LED toggles (turns on or off).
 - Just you, the CPU registers, and the datasheet
            
 
-            
+## ✨ Test it online — No installation required
+
+You don’t need to install Arduino IDE, compilers, or drivers.
+
+You can **assemble and upload this exact code from your browser**:
+
+👉 **[costycnc.github.io/avr-compiler-js](https://costycnc.github.io/avr-compiler-js)** 👈
+
+### How it works:
+
+1. Open the link above
+2. Copy the assembly code from this README
+3. Paste it into the online editor
+4. Click **"Assemble"** (the site generates the HEX file in your browser — no server, no magic)
+5. Connect your Arduino UNO (or Nano) via USB
+6. Click the **"Upload"** button (it uses Web Serial API)
+7. Select the correct COM port / USB port
+8. Watch the LED on pin 13 (PB5) turn on **immediately**
+
+No IDE configuration.  
+No board selection.  
+No drivers to install.  
+Just your code and the naked silicon.
+
+### Compare for yourself:
+
+| Feature | Arduino IDE | costycnc.github.io/avr-compiler-js |
+|---------|-------------|-------------------------------------|
+| Installation | Yes (IDE + drivers) | **None** — works in the browser |
+| Configuration | Select board, port, chip | **Nothing** — plug and go |
+| First LED code | `setup()`, `loop()`, `digitalWrite()` | `sbi 0x4, 5` — the LED turns on |
+| Libraries | Many, but often hide everything | **None** — you see the actual registers |
+| Learning curve | Softer, but less transparent | More direct — you learn how it really works |
+
+**You see the registers. You touch the silicon. No magic. No excuses.**
+
+Now go write `OUT 0x25, 0b00000101` and watch Timer0 count — live, in your browser, on real hardware.
+         
             
 
 
