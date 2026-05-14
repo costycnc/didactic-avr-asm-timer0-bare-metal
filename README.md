@@ -17,4 +17,15 @@ Write OUT 0x25, 0b00000101 and the ATmega328P's Timer1 starts counting. Period. 
 
 <img width="858" height="322" alt="image" src="https://github.com/user-attachments/assets/5e95a0a1-5261-407a-9e14-c5bc13889b3a" />
 
+            So ... for most last value of Timer0 CS00=1  CS01=0 and CS02=1 so 0b00000101 in binary
+            But you can't write this value directly to register ... so need to use a temporary register
+            Will use temporary register R16 ... so will upload this value to r16
+            
+            Ldi r16,0b00000101
+
+            And now can put value of r16 to reg 0x25 (TIMER0) ... so OUT 0x25,r16 
+
+            
+            
+
 
