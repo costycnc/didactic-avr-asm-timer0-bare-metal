@@ -21,7 +21,7 @@ This repository is for those who want to see the naked silicon. No abstraction l
 To start Timer0, you need to change the last 3 bits of register `0x25` (these bits are called CS00, CS01, and CS02).  
 Set them to any value **greater than 0**.
 
-<img width="916" height="151" alt="image" src="https://github.com/user-attachments/assets/bf6ac584-2643-4e7b-907e-a48002f4e936" />
+<img width="787" height="23" alt="image" src="https://github.com/user-attachments/assets/238fbb6d-9afa-4d23-9949-b6f5097a1970" />
 
 ---
 
