@@ -57,7 +57,8 @@ ldi r16, 0b00000101
 out 0x25, r16
 ```
 
-<img width="898" height="61" alt="image" src="https://github.com/user-attachments/assets/f524179c-0283-4f4a-bb19-7694f89aef36" />
+<img width="887" height="28" alt="image" src="https://github.com/user-attachments/assets/dc84e6fe-6058-40f5-9839-5e814754501f" />
+
 
 ---
 
