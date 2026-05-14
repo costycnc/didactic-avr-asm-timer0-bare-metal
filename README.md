@@ -29,6 +29,14 @@ Write OUT 0x25, 0b00000101 and the ATmega328P's Timer1 starts counting. Period. 
 
            If upload the code to arduino the register 0x26 alias TCNT0 will begin incremented untill arrive a 255 
 
+<img width="882" height="90" alt="image" src="https://github.com/user-attachments/assets/396bda6e-64c1-4cad-bbaf-6a36e32b4eb2" />
+
+           When arrive a 255 begin 0 and register 0x15 bit0 alias TOV0 is set to 1 and counter begin count again
+           So if check this bit continuous we know when bit is set 1 , and can use this information for measure time
+           After TOV0 is set to 1 will set again to 0 to know when arrive again to 1
+           In this mode any 16000000/1024/256 will have a tick ,than can control a function can make a blink
+           
+
             
             
 
