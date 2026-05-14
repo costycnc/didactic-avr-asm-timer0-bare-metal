@@ -7,6 +7,10 @@ Write OUT 0x25, 0b00000101 and the ATmega328P's Timer1 starts counting. Period. 
 
 <img width="916" height="151" alt="image" src="https://github.com/user-attachments/assets/bf6ac584-2643-4e7b-907e-a48002f4e936" />
 
+<a href="https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf">Datasheet atmega328 </a> Page 87
+            
+             The table values to set TIMER0
+
 <img width="858" height="322" alt="image" src="https://github.com/user-attachments/assets/5e95a0a1-5261-407a-9e14-c5bc13889b3a" />
 
 
