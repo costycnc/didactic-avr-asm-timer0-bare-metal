@@ -141,6 +141,76 @@ You are controlling the hardware directly.
 No libraries. No hidden code. Just you and the silicon.
 
 This is how microcontrollers work at the lowest level.
+
+
+
+                    .org 0
+                    rjmp start
+                    .org 0x60
+                    
+                    start:
+                      ; Set PIN D13 (LED onboard) as output pin
+                      sbi 4, 5              ; 4 = DDRB, bit 5 = PB5 (Arduino pin 13)
+                      
+                      ; Set up Timer0 with prescaler 1024
+                      ldi r16, 0b00000101
+                      out 0x25, r16         ; 0x25 = TCCR0B (Timer0 control register)
+                    
+                    main_loop1:
+                      ldi r17, 32           ; Blink speed: 16,000,000 / 1024 / 256 * 32 = ~0.5 seconds
+                    
+                    main_loop:
+                      ; Check if TOV0 flag is set
+                      in r16, 0x15          ; 0x15 = TIFR0 (Timer0 interrupt flag register)
+                      sbrs r16, 0           ; Skip next instruction if bit 0 (TOV0) = 1
+                      rjmp main_loop        ; If not set, keep checking
+                    
+                      ; Clear TOV0 flag by writing 1 to bit 0
+                      ldi r16, 0b00000001
+                      out 0x15, r16
+                    
+                      dec r17               ; Decrease counter
+                      brne main_loop        ; If not zero, wait for next overflow
+                    
+                      ; TOV0 has overflowed 32 times → toggle LED on PB5
+                      sbi 0x03, 5           ; 0x03 = PINB (toggle bit 5 = PB5)
+                      rjmp main_loop1       ; Reset counter and repeat
+
+
+---
+
+## 💡 Practical Use - Explained for Beginners
+
+Every time Timer0 overflows (every ~16 ms), the code checks and counts.  
+After 32 overflows, the LED toggles (turns on or off).
+
+### How the blink speed is calculated:
+
+
+                    Clock speed: 16,000,000 Hz
+                    Prescaler: 1024
+                    Timer max value: 256
+                    
+                    Overflow frequency = 16,000,000 / 1024 / 256 = 61 Hz
+                    One overflow = 1 / 61 = 0.01638 seconds ≈ 16.38 ms
+                    
+                    32 overflows = 32 × 16.38 ms = 524 ms ≈ 0.5 seconds
+
+
+### What each register means:
+
+| Register | Address | Name | Purpose |
+|----------|---------|------|---------|
+| TCCR0B | 0x25 | Timer0 Control Register B | Sets the prescaler (clock speed divider) |
+| TIFR0 | 0x15 | Timer0 Interrupt Flag Register | Tells you when Timer0 overflows |
+| PINB | 0x03 | Port B Input Pins | Writing here toggles the LED |
+| DDRB | 0x04 | Port B Data Direction Register | Sets pin as output (1) or input (0) |
+
+### This is "bare metal" because:
+- No `delay()` function
+- No `pinMode()` or `digitalWrite()`
+- No Arduino libraries at all
+- Just you, the CPU registers, and the datasheet
            
 
             
