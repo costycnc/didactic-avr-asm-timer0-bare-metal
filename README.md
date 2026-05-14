@@ -25,6 +25,10 @@ Write OUT 0x25, 0b00000101 and the ATmega328P's Timer1 starts counting. Period. 
 
             And now can put value of r16 to reg 0x25 (TIMER0) ... so OUT 0x25,r16 
 
+<img width="898" height="61" alt="image" src="https://github.com/user-attachments/assets/f524179c-0283-4f4a-bb19-7694f89aef36" />
+
+           If upload the code to arduino the register 0x26 alias TCNT0 will begin incremented untill arrive a 255 
+
             
             
 
