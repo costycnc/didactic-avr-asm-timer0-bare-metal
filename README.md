@@ -1,5 +1,5 @@
 
-# didactic-avr-asm-timer0-bare-metal
+## 🔧 Didactic-avr-asm-timer0-bare-metal
 
 Write `OUT 0x25, 0b00000101` and the ATmega328P's Timer0 starts counting. Period.
 
