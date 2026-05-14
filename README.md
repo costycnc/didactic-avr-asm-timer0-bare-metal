@@ -91,6 +91,15 @@ The LED blinks **very quickly** — too fast for your eyes to see!
 Every time Timer0 overflows (every ~16 ms), the code checks and counts.  
 After 32 overflows, the LED toggles (turns on or off).
 
+         main_loop1:
+                      ldi r17, 32           ; Blink speed: 16,000,000 / 1024 / 256 * 32 = ~0.5 seconds
+                      .
+                      .
+                      dec r17               ; Decrease counter
+                      brne main_loop        ; If not zero, wait for next overflow                      
+
+                      
+
 ### How the blink speed is calculated:
 
 
