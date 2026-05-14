@@ -203,7 +203,7 @@ Just your code and the naked silicon.
 |---------|-------------|-------------------------------------|
 | Installation | Yes (IDE + drivers) | **None** — works in the browser |
 | Configuration | Select board, port, chip | **Nothing** — plug and go |
-| First LED code | `setup()`, `loop()`, `digitalWrite()` | `sbi 0x4, 5` — the LED turns on |
+| First LED code | `setup()`, `loop()`, `digitalWrite()` | `sbi 0x3, 5` — the LED turns on (toggle)|
 | Libraries | Many, but often hide everything | **None** — you see the actual registers |
 | Learning curve | Softer, but less transparent | More direct — you learn how it really works |
 
